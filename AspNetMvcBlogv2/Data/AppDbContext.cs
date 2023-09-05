@@ -29,8 +29,21 @@ namespace AspNetMvcBlogv2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
-            modelBuilder.Seed();
+			    modelBuilder.Entity<CategoryPost>()
+				    .HasKey(cp => new { cp.CategoryId, cp.PostId });
+
+			    modelBuilder.Entity<CategoryPost>()
+					    .HasOne(cp => cp.Category)
+					    .WithMany(c => c.CategoryPosts)
+					    .HasForeignKey(cp => cp.CategoryId);
+
+			    modelBuilder.Entity<CategoryPost>()
+					    .HasOne(cp => cp.Post)
+					    .WithMany(p => p.CategoryPosts)
+					    .HasForeignKey(cp => cp.PostId);
+
+			//base.OnModelCreating(modelBuilder);
+			modelBuilder.Seed();
         }
 
     }

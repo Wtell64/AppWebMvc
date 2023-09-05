@@ -15,9 +15,9 @@ namespace AspNetMvcBlogv2.Data.Entity
         [MinLength(5)]
         public string Name { get; set; }
 
-        public string Value { get; set; }
+		    [Required]
+		    [MaxLength(255)]
+		    public string Value { get; set; }
 
-
-        public User? User { get; set; }
     }
 }

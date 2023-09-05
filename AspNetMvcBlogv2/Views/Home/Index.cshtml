@@ -1,4 +1,27 @@
-﻿<partial name="_Slider" />
+﻿@model IEnumerable<AspNetMvcBlogv2.Data.Entity.Post>
+
+<partial name="_Slider" model = "@Model" />
+
+<form asp-controller="Home" asp-action="Index" method="post">
+  <div class="container">
+
+    <div class="row height d-flex justify-content-center align-items-center">
+
+      <div class="col-md-8">
+
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control" name="searchTerm" placeholder="Search...">
+          <button type="submit" class="btn btn-primary" style="background-color:#272d33">Search</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</form>
+
+
 
 <partial name="_Articles" />
 

@@ -4,6 +4,7 @@ using AspNetMvcBlogv2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspNetMvcBlogv2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230904194750_1001_ilk")]
+    partial class _1001_ilk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,32 +43,32 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("05d31d49-b729-4513-8067-6cc1452d3cdb"),
+                            Id = new Guid("66c1cd20-0a4a-481a-910e-dcca1c5d96f2"),
                             Name = "Health and Fitness"
                         },
                         new
                         {
-                            Id = new Guid("739f78a6-2999-4751-beb6-8bc5315768e3"),
+                            Id = new Guid("1e4e4dfc-07bc-410f-baf9-ded048b8a252"),
                             Name = "Travel and Exploration"
                         },
                         new
                         {
-                            Id = new Guid("bfb9894c-43e9-430b-a836-ba8b8ba9d23f"),
+                            Id = new Guid("c7c91b0d-498a-4a98-8c52-fa9a4e18f15c"),
                             Name = "Personal Growth"
                         },
                         new
                         {
-                            Id = new Guid("0ad091ac-653a-4ef3-8be4-fb30614ebf70"),
+                            Id = new Guid("6a042627-8985-4763-aef6-56fa415ad742"),
                             Name = "Relationships"
                         },
                         new
                         {
-                            Id = new Guid("fe60e619-0046-4c90-a904-bb43266b2268"),
+                            Id = new Guid("ad8fc89b-96d6-4273-9194-cd2f164531d3"),
                             Name = "Creativity"
                         },
                         new
                         {
-                            Id = new Guid("465fd53c-0682-4492-bc24-9a3aee30ec5d"),
+                            Id = new Guid("6c05a676-b28a-4314-91e5-9540259e877d"),
                             Name = "Sustainability"
                         });
                 });
@@ -91,45 +94,45 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryId = new Guid("05d31d49-b729-4513-8067-6cc1452d3cdb"),
-                            PostId = new Guid("5231a709-8d5a-4678-9c8a-74c9468c942a"),
-                            Id = new Guid("847042bb-2715-4632-ad82-7b343d680310")
+                            CategoryId = new Guid("66c1cd20-0a4a-481a-910e-dcca1c5d96f2"),
+                            PostId = new Guid("cde9c5e7-d458-4db5-8b01-2589a71c389b"),
+                            Id = new Guid("9c255dde-5adb-4f70-8e1a-bdf02f29b2e7")
                         },
                         new
                         {
-                            CategoryId = new Guid("739f78a6-2999-4751-beb6-8bc5315768e3"),
-                            PostId = new Guid("b3aec220-283d-4d21-962b-6e5a01a7cde4"),
-                            Id = new Guid("d9cc4096-4fa3-4a54-b47e-70a9febe3098")
+                            CategoryId = new Guid("1e4e4dfc-07bc-410f-baf9-ded048b8a252"),
+                            PostId = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1"),
+                            Id = new Guid("42099c9a-1614-488a-be70-01cf1f98e165")
                         },
                         new
                         {
-                            CategoryId = new Guid("bfb9894c-43e9-430b-a836-ba8b8ba9d23f"),
-                            PostId = new Guid("b9ca29cd-1e8f-478b-b0ff-26607d61ea3b"),
-                            Id = new Guid("a4564f57-a597-41bd-ae17-7ebd877454fa")
+                            CategoryId = new Guid("c7c91b0d-498a-4a98-8c52-fa9a4e18f15c"),
+                            PostId = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47"),
+                            Id = new Guid("283a9ada-19b7-40a2-bf04-9403b4613fa9")
                         },
                         new
                         {
-                            CategoryId = new Guid("fe60e619-0046-4c90-a904-bb43266b2268"),
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b"),
-                            Id = new Guid("643fa84c-fd59-421f-a650-a59d67b6f098")
+                            CategoryId = new Guid("ad8fc89b-96d6-4273-9194-cd2f164531d3"),
+                            PostId = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79"),
+                            Id = new Guid("ba03d5ae-87b1-4e94-9063-a6b8bde99c4c")
                         },
                         new
                         {
-                            CategoryId = new Guid("0ad091ac-653a-4ef3-8be4-fb30614ebf70"),
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b"),
-                            Id = new Guid("68615bb7-0cd2-458a-909c-37e2c72afea9")
+                            CategoryId = new Guid("6a042627-8985-4763-aef6-56fa415ad742"),
+                            PostId = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79"),
+                            Id = new Guid("0979ce47-3958-48ef-b7fa-9d07f48f4003")
                         },
                         new
                         {
-                            CategoryId = new Guid("fe60e619-0046-4c90-a904-bb43266b2268"),
-                            PostId = new Guid("d5a438e6-c0ba-4c78-aa59-48adbe382f7b"),
-                            Id = new Guid("cfa4bab3-9419-4b13-b4c2-e3047c033e9d")
+                            CategoryId = new Guid("ad8fc89b-96d6-4273-9194-cd2f164531d3"),
+                            PostId = new Guid("6bb590ff-dca2-4640-a423-be3cbbe24059"),
+                            Id = new Guid("bf398100-8a52-4963-90cc-84c3c9d25945")
                         },
                         new
                         {
-                            CategoryId = new Guid("465fd53c-0682-4492-bc24-9a3aee30ec5d"),
-                            PostId = new Guid("1e789c85-64d5-4439-a9b4-9f211d2e03ba"),
-                            Id = new Guid("8ed7d3c9-b178-4361-aea3-50b45819d299")
+                            CategoryId = new Guid("6c05a676-b28a-4314-91e5-9540259e877d"),
+                            PostId = new Guid("90403af6-f8d0-41aa-be92-b9738b459a6f"),
+                            Id = new Guid("d0be02b1-5fe7-4efa-8655-7572494272a7")
                         });
                 });
 
@@ -156,13 +159,13 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f04736c5-09fd-43b6-aca3-666ccb39f1f9"),
+                            Id = new Guid("850bf509-1fde-4bf3-9f86-6041c8e1d7e8"),
                             Content = "This is the about us page",
                             Title = "About Us"
                         },
                         new
                         {
-                            Id = new Guid("a8debc5b-d6b9-4680-805c-0c1b24b9a5ba"),
+                            Id = new Guid("d2f67ea6-54dc-453c-a9cc-a906480dc552"),
                             Content = "This is the contact page",
                             Title = "Contact"
                         });
@@ -197,51 +200,51 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5231a709-8d5a-4678-9c8a-74c9468c942a"),
+                            Id = new Guid("cde9c5e7-d458-4db5-8b01-2589a71c389b"),
                             Content = "Maintaining a healthy lifestyle goes beyond hitting the gym; it's about making mindful choices every day. Whether it's choosing nutritious foods or finding joy in outdoor activities, taking small steps can lead to significant improvements in your overall well-being. Remember, your journey to better health is a marathon, not a sprint.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9295),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2391),
                             Title = "First Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9295)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2392)
                         },
                         new
                         {
-                            Id = new Guid("b3aec220-283d-4d21-962b-6e5a01a7cde4"),
+                            Id = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1"),
                             Content = "Exploring new places broadens your horizons and enriches your life in ways you can't imagine. From the bustling streets of vibrant cities to the serene beauty of remote landscapes, every destination has a story to tell. So, pack your bags, embrace the adventure, and let the world be your teacher.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9297),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2393),
                             Title = "Second Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9297)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2394)
                         },
                         new
                         {
-                            Id = new Guid("b9ca29cd-1e8f-478b-b0ff-26607d61ea3b"),
+                            Id = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47"),
                             Content = "Personal growth is a lifelong journey of self-discovery and self-improvement. It's about embracing change, learning from experiences, and continuously evolving into the best version of yourself. Remember, progress may be slow at times, but every step forward is a step closer to your goals.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9299),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2395),
                             Title = "Third Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9299)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2395)
                         },
                         new
                         {
-                            Id = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b"),
+                            Id = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79"),
                             Content = "Strong and meaningful relationships are the cornerstone of a fulfilling life. Cultivate connections that are built on trust, communication, and mutual respect. These bonds will provide unwavering support and joy through life's ups and downs.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9301),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2397),
                             Title = "Forth Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9301)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2397)
                         },
                         new
                         {
-                            Id = new Guid("d5a438e6-c0ba-4c78-aa59-48adbe382f7b"),
+                            Id = new Guid("6bb590ff-dca2-4640-a423-be3cbbe24059"),
                             Content = "Creativity knows no bounds, and it resides within each of us. Whether you express it through art, writing, music, or any other form, don't hesitate to let your imagination run wild. Your unique creative voice has the power to inspire, uplift, and change the world.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9302),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2398),
                             Title = "Fifth Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9303)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2399)
                         },
                         new
                         {
-                            Id = new Guid("1e789c85-64d5-4439-a9b4-9f211d2e03ba"),
+                            Id = new Guid("90403af6-f8d0-41aa-be92-b9738b459a6f"),
                             Content = "The planet we call home needs our care and attention now more than ever. Embracing sustainable practices in our daily lives, from reducing waste to conserving energy, is not just a choice but a responsibility. Together, we can create a greener and healthier future for generations to come.",
-                            PublishedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9304),
+                            PublishedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2400),
                             Title = "Sixst Post",
-                            UpdatedAt = new DateTime(2023, 9, 5, 12, 59, 57, 116, DateTimeKind.Local).AddTicks(9304)
+                            UpdatedAt = new DateTime(2023, 9, 4, 22, 47, 50, 220, DateTimeKind.Local).AddTicks(2401)
                         });
                 });
 
@@ -268,63 +271,63 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5b7b9534-51d4-499d-a8f6-db7b216bed2a"),
+                            Id = new Guid("c9eed44d-1d2c-48dd-aaeb-6b47b27f5818"),
                             Content = "Your smile is absolutely radiant, lighting up the entire page!",
-                            PostId = new Guid("5231a709-8d5a-4678-9c8a-74c9468c942a")
+                            PostId = new Guid("cde9c5e7-d458-4db5-8b01-2589a71c389b")
                         },
                         new
                         {
-                            Id = new Guid("da78a06e-a6bc-4995-8f59-5252aa096b09"),
+                            Id = new Guid("ba061019-67d7-4736-92fa-c40fd56a083d"),
                             Content = "What a charming face, your positivity is contagious!",
-                            PostId = new Guid("b3aec220-283d-4d21-962b-6e5a01a7cde4")
+                            PostId = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1")
                         },
                         new
                         {
-                            Id = new Guid("c618dc24-59a2-483c-ae1f-4df810774728"),
+                            Id = new Guid("0f1066a3-a63e-4e2b-9d38-5f411cf8ffff"),
                             Content = "You exude such warmth and kindness in every photo.",
-                            PostId = new Guid("b9ca29cd-1e8f-478b-b0ff-26607d61ea3b")
+                            PostId = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47")
                         },
                         new
                         {
-                            Id = new Guid("13fce977-0d5d-4bff-b761-a5cba3774d27"),
+                            Id = new Guid("643b547c-5dca-4341-bf5d-d20255de4a53"),
                             Content = "A truly beautiful face that reflects an equally beautiful soul.",
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b")
+                            PostId = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79")
                         },
                         new
                         {
-                            Id = new Guid("7850df2d-6fb2-4c57-93aa-0c8b52386d44"),
+                            Id = new Guid("30b3363a-9cb2-4f03-9aa0-d563e8c103b8"),
                             Content = "Your expressions are a delightful addition to this blog!",
-                            PostId = new Guid("d5a438e6-c0ba-4c78-aa59-48adbe382f7b")
+                            PostId = new Guid("6bb590ff-dca2-4640-a423-be3cbbe24059")
                         },
                         new
                         {
-                            Id = new Guid("878b8310-afec-4bf5-b8fd-8567e40804b6"),
+                            Id = new Guid("18cf0c92-2aa7-420b-b987-61926369dc73"),
                             Content = "You've got that perfect combination of grace and charm.",
-                            PostId = new Guid("1e789c85-64d5-4439-a9b4-9f211d2e03ba")
+                            PostId = new Guid("90403af6-f8d0-41aa-be92-b9738b459a6f")
                         },
                         new
                         {
-                            Id = new Guid("f37579f6-f1f2-4865-8b55-1a709f824c55"),
+                            Id = new Guid("1d3d1338-38bb-4fb9-8579-578265972843"),
                             Content = "Your face brightens up my day – thank you for sharing your joy!",
-                            PostId = new Guid("b3aec220-283d-4d21-962b-6e5a01a7cde4")
+                            PostId = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1")
                         },
                         new
                         {
-                            Id = new Guid("eb320f10-ae64-4b88-b863-c6901192df84"),
+                            Id = new Guid("f701228c-5c24-4805-a899-11a08fbb2e90"),
                             Content = "Each picture tells a story of happiness and positivity.",
-                            PostId = new Guid("b9ca29cd-1e8f-478b-b0ff-26607d61ea3b")
+                            PostId = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47")
                         },
                         new
                         {
-                            Id = new Guid("a6c917cf-7abc-48d3-a60e-070c550d798d"),
+                            Id = new Guid("08bd775f-792a-4b33-9873-905a55d745a0"),
                             Content = "Your face is a reflection of the sunshine in your heart.",
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b")
+                            PostId = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79")
                         },
                         new
                         {
-                            Id = new Guid("62503d1b-7fbe-488f-aa4d-aedc964dbd53"),
+                            Id = new Guid("a037335d-c653-4b37-91ef-53a6773831e9"),
                             Content = "Your presence adds a touch of elegance to this blog.",
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b")
+                            PostId = new Guid("813a5718-6fd9-4112-b69e-ef6196404f79")
                         });
                 });
 
@@ -351,39 +354,39 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("47edab9a-8188-4777-8562-de95a31bf9fd"),
-                            ImageUrl = "https://picsum.photos/id/10/150/200",
-                            PostId = new Guid("5231a709-8d5a-4678-9c8a-74c9468c942a")
+                            Id = new Guid("4715eff0-7f9e-4594-bc4c-657ed558480f"),
+                            ImageUrl = "https://picsum.photos/id/10/200/300",
+                            PostId = new Guid("cde9c5e7-d458-4db5-8b01-2589a71c389b")
                         },
                         new
                         {
-                            Id = new Guid("d91f560d-a86e-41ba-9d2a-3bccfc6023cc"),
-                            ImageUrl = "https://picsum.photos/id/11/150/200",
-                            PostId = new Guid("b3aec220-283d-4d21-962b-6e5a01a7cde4")
+                            Id = new Guid("e24ec3ba-00ea-4d55-a762-d1707aed594f"),
+                            ImageUrl = "https://picsum.photos/id/11/200/300",
+                            PostId = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1")
                         },
                         new
                         {
-                            Id = new Guid("4485b101-5b92-420c-99cf-dbe09204b683"),
-                            ImageUrl = "https://picsum.photos/id/12/150/200",
-                            PostId = new Guid("b9ca29cd-1e8f-478b-b0ff-26607d61ea3b")
+                            Id = new Guid("cd6cb517-e54f-4048-8368-0dae6f07b3e9"),
+                            ImageUrl = "https://picsum.photos/id/12/200/300",
+                            PostId = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47")
                         },
                         new
                         {
-                            Id = new Guid("b89b65c9-5984-4990-aa14-d47503b85be9"),
-                            ImageUrl = "https://picsum.photos/id/13/150/200",
-                            PostId = new Guid("e9c21a84-38ca-4731-b54f-ebef6236a38b")
+                            Id = new Guid("776e900e-dda9-4f3b-a2ec-13b02c1a90d4"),
+                            ImageUrl = "https://picsum.photos/id/13/200/300",
+                            PostId = new Guid("cde9c5e7-d458-4db5-8b01-2589a71c389b")
                         },
                         new
                         {
-                            Id = new Guid("89aacb61-a26c-4c99-9e05-6fe55e02b29c"),
-                            ImageUrl = "https://picsum.photos/id/14/150/200",
-                            PostId = new Guid("d5a438e6-c0ba-4c78-aa59-48adbe382f7b")
+                            Id = new Guid("238c0fbb-6adf-4548-a14b-cdcfe36dcd02"),
+                            ImageUrl = "https://picsum.photos/id/14/200/300",
+                            PostId = new Guid("d2960b3b-aadf-479f-883c-55491b6225f1")
                         },
                         new
                         {
-                            Id = new Guid("a76a7c43-2cdd-4c7e-89f0-176101288f79"),
-                            ImageUrl = "https://picsum.photos/id/15/150/200",
-                            PostId = new Guid("1e789c85-64d5-4439-a9b4-9f211d2e03ba")
+                            Id = new Guid("5a92e0ef-f095-477b-a43c-5944bfe0cb56"),
+                            ImageUrl = "https://picsum.photos/id/15/200/300",
+                            PostId = new Guid("04625ab9-af73-4611-b7e7-2e6a478fca47")
                         });
                 });
 
@@ -410,13 +413,13 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7709a9ee-d835-40e0-8d0a-09325fabcd19"),
+                            Id = new Guid("258e8dae-d039-4799-80a8-0cb281ea4bc3"),
                             Name = "SiteName",
                             Value = "My Blog"
                         },
                         new
                         {
-                            Id = new Guid("f6bde4dc-9358-4b74-b6df-0dfb17164a22"),
+                            Id = new Guid("6705d74d-fe2e-4113-8494-7e3f2574e2f4"),
                             Name = "MaxPostsPerPage",
                             Value = "10"
                         });
@@ -454,7 +457,7 @@ namespace AspNetMvcBlogv2.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5ef26b65-a40f-40b1-abd5-230b3d3f0bab"),
+                            Id = new Guid("156ddce5-8e69-4ec2-b9bd-19e752837e92"),
                             Email = "test1@gmail.com",
                             Name = "user1",
                             Password = "123",
@@ -462,7 +465,7 @@ namespace AspNetMvcBlogv2.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dddb4da9-974c-45b8-a1b5-5bc3b27bc459"),
+                            Id = new Guid("25247edf-1c92-41ce-8de8-3188f39c6b2e"),
                             Email = "test2@gmail.com",
                             Name = "user2",
                             Password = "123",
@@ -470,7 +473,7 @@ namespace AspNetMvcBlogv2.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f8c75be2-f2bd-4dd3-99c3-e72db612122c"),
+                            Id = new Guid("4ae8dec1-de44-4c07-b248-2c7a1e7c9edc"),
                             Email = "test3@gmail.com",
                             Name = "user3",
                             Password = "123",
@@ -478,7 +481,7 @@ namespace AspNetMvcBlogv2.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7dff4d57-0949-4702-8a71-b5708373d9bc"),
+                            Id = new Guid("2537c73e-1aff-4d1e-975b-403d38a825b9"),
                             Email = "test4@gmail.com",
                             Name = "user4",
                             Password = "123",
@@ -486,7 +489,7 @@ namespace AspNetMvcBlogv2.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d912d4b5-a0f0-4314-a17e-c4e16e034fee"),
+                            Id = new Guid("7c0ba92a-ef68-4e3a-a0f2-c02a23a3299a"),
                             Email = "test5@gmail.com",
                             Name = "user5",
                             Password = "123",
@@ -494,7 +497,7 @@ namespace AspNetMvcBlogv2.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1d62a985-eeb7-41c6-a504-53b5f0b0f37d"),
+                            Id = new Guid("82603321-3a04-4777-8751-34ddf8d165f9"),
                             Email = "test6@gmail.com",
                             Name = "user6",
                             Password = "123",

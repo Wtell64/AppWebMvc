@@ -10,7 +10,8 @@ namespace AspNetMvcBlogv2.Data.Entity
         public Guid Id { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
+		[MaxLength(255)]
+		public string ImageUrl { get; set; }
 
 
         //Relationships

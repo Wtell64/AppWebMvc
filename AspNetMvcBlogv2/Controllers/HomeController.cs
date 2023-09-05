@@ -1,5 +1,7 @@
-﻿using AspNetMvcBlogv2.Models;
+﻿using AspNetMvcBlogv2.Data;
+using AspNetMvcBlogv2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace AspNetMvcBlogv2.Controllers
@@ -7,18 +9,27 @@ namespace AspNetMvcBlogv2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AppDbContext _context;
+    public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext)
         {
-            _logger = logger;
-        }
+           _logger = logger;
+          _context = appDbContext;
+    }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var posts = _context.Post.Include(x => x.Images ).ToList();
+            return View(posts);
         }
 
-        public IActionResult Privacy()
+		    [HttpPost]
+		    public IActionResult Index(string searchTerm)
+		    {
+			    return RedirectToAction("Search", "Blog", new { searchTerm });
+		    }
+
+		public IActionResult Privacy()
         {
             return View();
         }

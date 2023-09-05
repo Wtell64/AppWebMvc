@@ -10,12 +10,12 @@ namespace AspNetMvcBlogv2.Data.Entity
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(10, ErrorMessage = "{0} en fazla {1} harf olmali")]
+        [StringLength(30, ErrorMessage = "{0} en fazla {1} harf olmali")]
         [MinLength(3, ErrorMessage = "{0} en az {1} harf olmali")]
         public string Name { get; set; }
 
         [Required]
-        [StringLength(10, ErrorMessage = "{0} en fazla {1} harf olmali")]
+        [StringLength(30, ErrorMessage = "{0} en fazla {1} harf olmali")]
         [MinLength(3, ErrorMessage = "{0} en az {1} harf olmali")]
         public string Surname { get; set; }
 

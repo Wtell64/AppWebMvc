@@ -19,7 +19,8 @@ namespace AspNetMvcBlogv2.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var posts = _context.Post.Include(x => x.Images ).ToList();
+            var posts = _context.Post.Include(x => x.Images).Include(x => x.CategoryPosts) 
+				.ThenInclude(cp => cp.Category).ToList();
             return View(posts);
         }
 

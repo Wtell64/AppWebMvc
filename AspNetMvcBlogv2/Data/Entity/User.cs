@@ -25,10 +25,12 @@ namespace AspNetMvcBlogv2.Data.Entity
         [MinLength(3, ErrorMessage = "{0} en az {1} harf olmali")]
         public string Email { get; set; }
 
-        [Required]
+		    [StringLength(30, ErrorMessage = "{0} en fazla {1} harf olmali")]
+		    [Required]
         public string Password { get; set; }
 
-
+		    [StringLength(100, ErrorMessage = "{0} en fazla {1} harf olmali")]
+		    public string ProfilePictureURL { get; set; }
 
     }
 }

@@ -15,7 +15,7 @@ namespace AspNetMvcBlogv2.Data.Entity
         public string Title { get; set; }
 
         [Required]
-        [StringLength(400, ErrorMessage = "{0} en fazla {1} harf olmali")]
+        [StringLength(1500, ErrorMessage = "{0} en fazla {1} harf olmali")]
         [MinLength(3, ErrorMessage = "{0} en az {1} harf olmali")]
         public string Content { get; set; }
     }

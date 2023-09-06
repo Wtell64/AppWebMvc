@@ -26,7 +26,8 @@ namespace AspNetMvcBlogv2.Controllers
 
 			var posts = appDbContext.Post
 				.Where(p => p.CategoryPosts.Any(cp => cp.CategoryId == id))
-				.Include(p => p.Images) // Include the related PostImages
+				.Include(p => p.Images).Include(x => x.CategoryPosts)
+				.ThenInclude(cp => cp.Category)
 				.ToList();
 
 			return View(posts);

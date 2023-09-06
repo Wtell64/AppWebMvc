@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AspNetMvcBlogv2.Data.Entity.Category>
+﻿@model AspNetMvcBlogv2.ViewModels.PageCategoryViewModel
 
 <header class="header-top bg-grey justify-content-center">
 	<div class="container">
@@ -24,13 +24,18 @@
 									Category
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									@foreach (var item in Model)
+									@foreach (var item in Model.Categories)
 									{
 										<a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-route-id="@item.Id">@item.Name</a>
 									}
 
 								</div>
 							</li>
+
+							@foreach(var apage in Model.Pages)
+							{
+								<li class="nav-item"><a asp-controller="Page" asp-action="Detail" asp-route-id = "@apage.Id" class="nav-link">@apage.Title</a></li>
+							}
 
 							<li class="nav-item"><a asp-controller ="Auth" asp-action="Login" class="nav-link">Login</a></li>
 

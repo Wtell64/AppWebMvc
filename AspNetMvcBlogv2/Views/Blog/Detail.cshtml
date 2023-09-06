@@ -8,8 +8,11 @@
         <div class="single-post">
           <div class="post-header mb-5 text-center">
             <div class="meta-cat">
-              <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">Health ,</a>
-              <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">lifestyle</a>
+              @foreach (var categoryPost in Model.CategoryPosts)
+              {
+                <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">@categoryPost.Category.Name</a>
+              }
+
             </div>
             <h2 class="post-title mt-2">
               @Model.Title
@@ -81,7 +84,7 @@
         @foreach(var comment in Model.Comments)
         {
           <div class="comment-area-box media">
-            <img alt="" src="~/images/blog-user-2.jpg" class="img-fluid float-left mr-3 mt-2">
+            <img alt="" src="@comment.User.ProfilePictureURL" class="img-fluid float-left mr-3 mt-2">
 
             <div class="media-body ml-4">
               <h4 class="mb-0">Micle harison </h4>

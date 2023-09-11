@@ -1,13 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AspNetMvcBlogv2.Data.Entity
+namespace AspNetMvcBlogv2.Data.DTOs
 {
-	public class User
+	public class RegisterUserDto
 	{
-		[Key]
-		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-		public Guid Id { get; set; }
 
 		[Required(ErrorMessage = "{0} bos gecilemez")]
 		[StringLength(30, ErrorMessage = "{0} en fazla {1} harf olmali")]
@@ -29,9 +25,8 @@ namespace AspNetMvcBlogv2.Data.Entity
 		[Required(ErrorMessage = "{0} bos gecilemez")]
 		public string Password { get; set; }
 
-		[StringLength(100, ErrorMessage = "{0} en fazla {1} harf olmali")]
 		[Required(ErrorMessage = "{0} bos gecilemez")]
+		[StringLength(100, ErrorMessage = "{0} en fazla {1} harf olmali")]
 		public string ProfilePictureURL { get; set; }
-
 	}
 }

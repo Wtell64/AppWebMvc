@@ -2,43 +2,59 @@
 using AspNetMvcBlogv2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Diagnostics;
 
 namespace AspNetMvcBlogv2.Controllers
 {
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
-        private readonly AppDbContext _context;
-    public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext)
-        {
-           _logger = logger;
-          _context = appDbContext;
-    }
+	public class HomeController : Controller
+	{
+		private readonly ILogger<HomeController> _logger;
+		private readonly AppDbContext _context;
+		public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext)
+		{
+			_logger = logger;
+			_context = appDbContext;
+		}
 
-        [HttpGet]
-        public IActionResult Index()
-        {
-            var posts = _context.Post.Include(x => x.Images).Include(x => x.CategoryPosts) 
-				.ThenInclude(cp => cp.Category).ToList();
-            return View(posts);
-        }
+		[HttpGet]
+		public IActionResult Index(int page = 1)
+		{
 
-		    [HttpPost]
-		    public IActionResult Index(string searchTerm)
-		    {
-			    return RedirectToAction("Search", "Blog", new { searchTerm });
-		    }
+			var totalPostCount = _context.Post.Count();
+			var postCountPerPage = 10;
+			var pageCount = Math.Ceiling((double)totalPostCount / postCountPerPage);
+			if (page <= 0) page = 1;
+			if (page > pageCount) page = (int)pageCount;
+
+			ViewBag.PageCount = pageCount;
+
+			var posts = _context.Post
+			.Skip((page - 1) * postCountPerPage).Take(postCountPerPage)
+			.Include(x => x.Images)
+			.Include(x => x.CategoryPosts).ThenInclude(cp => cp.Category).ToList();
+
+
+
+
+			return View(posts);
+		}
+
+		[HttpPost]
+		public IActionResult Index(string searchTerm)
+		{
+			return RedirectToAction("Search", "Blog", new { searchTerm });
+		}
 
 		public IActionResult Privacy()
-        {
-            return View();
-        }
+		{
+			return View();
+		}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error()
+		{
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+	}
 }

@@ -15,13 +15,24 @@ namespace AspNetMvcBlogv2.Controllers
     {
 			this.appDbContext = appDbContext;
     }
-    public IActionResult Search(string searchTerm) //, int? page
+    public IActionResult Search(string searchTerm, int page = 1) //, int? page
     {
 
       ViewBag.SearchTerm = searchTerm;
 
-      var relatedPosts = appDbContext.Post.Where(p => p.Title.Contains(searchTerm) || p.Content.Contains(searchTerm) ).Include(x => x.CategoryPosts)
-        .ThenInclude(cp => cp.Category).Include(p => p.Images).ToList();
+			var totalPostCount = appDbContext.Post.Count();
+			var postCountPerPage = 10;
+			var pageCount = Math.Ceiling((double)totalPostCount / postCountPerPage);
+			if (page <= 0) page = 1;
+			if (page > pageCount) page = (int)pageCount;
+
+			ViewBag.PageCount = pageCount;
+
+
+			var relatedPosts = appDbContext.Post.Where(p => p.Title.Contains(searchTerm) || p.Content.Contains(searchTerm))
+			.Skip((page - 1) * postCountPerPage).Take(postCountPerPage)
+			.Include(x => x.CategoryPosts).ThenInclude(cp => cp.Category)
+      .Include(p => p.Images).ToList();
 
       
 

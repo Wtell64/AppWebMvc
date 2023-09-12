@@ -17,10 +17,33 @@
 			<div class="m-auto">
 				<div class="pagination mt-5 pt-4">
 					<ul class="list-inline ">
-						<li class="list-inline-item"><a href="#" class="active">1</a></li>
-						<li class="list-inline-item"><a href="#">2</a></li>
-						<li class="list-inline-item"><a href="#">3</a></li>
-						<li class="list-inline-item"><a href="#" class="prev-posts"><i class="ti-arrow-right"></i></a></li>
+						@{
+							var activePage = Convert.ToInt32(Context.Request.Query["page"]);
+							var prevPage = activePage - 1;
+							if (prevPage <= 0) activePage = 1;
+							var nextPage = activePage + 1;
+							if (nextPage > (int)ViewBag.PageCount) nextPage = (int)ViewBag.PageCount;
+						}
+						@if (activePage > 1)
+						{
+							<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@prevPage"><i class="ti-arrow-left"></i></a></li>
+						}
+						@for (int i = 1; i <= ViewBag.PageCount; i++)
+						{
+							@if (i == activePage)
+							{
+								<li class="list-inline-item"><a class="active">@i</a></li>
+								//check later
+							}
+							else
+							{
+								<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a></li>
+							}
+						}
+						@if (activePage < (int)ViewBag.PageCount)
+						{
+							<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@nextPage"><i class="ti-arrow-right"></i></a></li>
+						}
 					</ul>
 				</div>
 			</div>

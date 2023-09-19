@@ -1,67 +1,103 @@
 ﻿@model AspNetMvcBlogv2.ViewModels.PageCategoryViewModel
+@using System.Text.Json;
+@using AspNetMvcBlogv2.Data.Entity;
+@inject IHttpContextAccessor _currentPageInfo
+@{
+  var isLoggedIn = _currentPageInfo.HttpContext.Session.GetInt32("isLoggedIn");
+  var sessionUser = _currentPageInfo.HttpContext.Session.Get("user");
+  User loggedInUser = null;
+  if (sessionUser != null)
+  {
+
+    loggedInUser = JsonSerializer.Deserialize<User>(sessionUser);
+  }
+}
+
+
 
 <header class="header-top bg-grey justify-content-center">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-2 col-md-4 text-center d-none d-lg-block">
-				<a class="navbar-brand " asp-controller ="Home" asp-action="Index">
-					<img src="~/images/logo.png" alt="logo" class="img-fluid">
-				</a>
-			</div>
-			<div class="col-lg-8 col-md-12">
-				<nav class="navbar navbar-expand-lg navigation-2 navigation">
-					<a class="navbar-brand text-uppercase d-lg-none" asp-controller="Home" asp-action="Index">
-						<img src="~/images/logo.png" alt="logo"  class="img-fluid">
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="ti-menu"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbar-collapse">
-						<ul id="menu" class="menu navbar-nav mx-auto">
-							<li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Category
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									@foreach (var item in Model.Categories)
-									{
-										<a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-route-id="@item.Id">@item.Name</a>
-									}
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-2 col-md-4 text-center d-none d-lg-block">
+        <a class="navbar-brand " asp-controller="Home" asp-action="Index">
+          <img src="~/images/logo.png" alt="logo" class="img-fluid">
+        </a>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <nav class="navbar navbar-expand-lg navigation-2 navigation">
+          <a class="navbar-brand text-uppercase d-lg-none" asp-controller="Home" asp-action="Index">
+            <img src="~/images/logo.png" alt="logo" class="img-fluid">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="ti-menu"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-collapse">
 
-								</div>
-							</li>
+            @if (isLoggedIn == 1)
+            {
+              <ul id="menu" class="menu navbar-nav mx-auto">
+                <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Category
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @foreach (var item in Model.Categories)
+                    {
+                      <a class="dropdown-item" asp-action="Index" asp-controller="Category" asp-route-id="@item.Id">@item.Name</a>
+                    }
 
-							@foreach(var apage in Model.Pages)
-							{
-								<li class="nav-item"><a asp-controller="Page" asp-action="Detail" asp-route-id = "@apage.Id" class="nav-link">@apage.Title</a></li>
-							}
+                  </div>
+                </li>
 
-							<li class="nav-item"><a asp-controller ="Auth" asp-action="Login" class="nav-link">Login</a></li>
+                @foreach (var apage in Model.Pages)
+                {
+                  <li class="nav-item"><a asp-controller="Page" asp-action="Detail" asp-route-id="@apage.Id" class="nav-link">@apage.Title</a></li>
+                }
 
-							<li class="nav-item"><a asp-controller="Auth" asp-action="Register" class="nav-link">Register</a></li>
-						</ul>
-						<ul class="list-inline mb-0 d-block d-lg-none">
-							<li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-			<div class="col-lg-2 col-md-4 col-6">
-				<div class="header-socials-2 text-right d-none d-lg-block">
-					<ul class="list-inline mb-0">
-						<li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+                <li class="nav-item"><a asp-controller="Auth" asp-action="Logout" class="nav-link">Logout</a></li>
+
+              </ul>
+
+              <ul id="menu" class="menu navbar-nav mx-auto">
+              <li class="nav-item d-flex align-items-center justify-content-center">
+                <p class="mb-0">@loggedInUser.Name @loggedInUser.Surname</p>
+              </li>
+              </ul>
+            }
+            else
+            {
+              <ul id="menu" class="menu navbar-nav mx-auto">
+                <li class="nav-item"><a asp-controller="Auth" asp-action="Login" class="nav-link">Login</a></li>
+
+                <li class="nav-item"><a asp-controller="Auth" asp-action="Register" class="nav-link">Register</a></li>
+
+              </ul>
+            }
+
+
+
+            <ul class="list-inline mb-0 d-block d-lg-none">
+              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="col-lg-2 col-md-4 col-6">
+        <div class="header-socials-2 text-right d-none d-lg-block">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
+            <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </header>

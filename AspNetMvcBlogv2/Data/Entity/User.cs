@@ -27,11 +27,14 @@ namespace AspNetMvcBlogv2.Data.Entity
 
 		[StringLength(30, ErrorMessage = "{0} en fazla {1} harf olmali")]
 		[Required(ErrorMessage = "{0} bos gecilemez")]
-		public string Password { get; set; }
+    //[PasswordPropertyText]
+    //[DataType(DataType.Password)]
+    public string Password { get; set; }
 
 		[StringLength(100, ErrorMessage = "{0} en fazla {1} harf olmali")]
 		[Required(ErrorMessage = "{0} bos gecilemez")]
 		public string ProfilePictureURL { get; set; }
+		//[ScaffoldColumn(false)]
 
 	}
 }

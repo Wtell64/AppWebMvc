@@ -1,8 +1,11 @@
 ﻿using AspNetMvcBlogv2.Data;
 using AspNetMvcBlogv2.Data.DTOs;
 using AspNetMvcBlogv2.Data.Entity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
+using System.Security.Claims;
+using System.Text.Json;
 
 namespace AspNetMvcBlogv2.Controllers
 {
@@ -42,7 +45,8 @@ namespace AspNetMvcBlogv2.Controllers
         RedirectToAction(nameof(Register));
       }
 
-      else {
+      else
+      {
         var dataModel = new User()
         {
           Id = Guid.NewGuid(),
@@ -62,10 +66,68 @@ namespace AspNetMvcBlogv2.Controllers
       return View();
 
     }
+    [HttpGet]
     public IActionResult Login(string? redirectUrl)
     {
+
       return View();
     }
+    [HttpPost]
+    public IActionResult Login(LoginUserDto model)
+    {
+      if (model == null)
+      {
+        return RedirectToAction(nameof(Login));
+      }
+
+      if (!ModelState.IsValid)
+      {
+        return View(model);
+      }
+
+      var user = appDbContext.User.FirstOrDefault(t => t.Email == model.Email && t.Password == model.Password);
+
+      if (user == null)
+      {
+        ModelState.AddModelError(nameof(model.Password), "Kullanıcı kodu veya şifreniz hatalı");
+        return View(model);
+      }
+
+      if (string.IsNullOrEmpty(HttpContext.Session.GetString("user")))
+      {
+        string userJson = JsonSerializer.Serialize<User>(user);
+        HttpContext.Session.SetString("user", userJson);
+        HttpContext.Session.SetInt32("isLoggedIn", 1);
+      }
+
+      #region claim
+      var claims = new List<Claim>()
+      {
+        new Claim(ClaimTypes.Name, user.Name),
+        new Claim(ClaimTypes.Surname, user.Surname),
+        new Claim(ClaimTypes.Email, user.Email)
+
+      };
+
+      var claimsIdentity = new ClaimsIdentity(claims,
+      CookieAuthenticationDefaults.AuthenticationScheme);
+
+      #endregion
+
+      return RedirectToAction(nameof(Index),"Home");
+
+    }
+
+    public IActionResult Logout()
+    {
+      HttpContext.Session.Clear();
+
+      //HttpContext.Session.Remove("user");
+
+    return Redirect("/"); ;
+
+    }
+
     public IActionResult ForgotPassword()
     {
       return View();

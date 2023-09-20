@@ -1,6 +1,7 @@
 ﻿using AspNetMvcBlogv2.Controllers;
-using AspNetMvcBlogv2.Data;
-using AspNetMvcBlogv2.Data.Entity;
+using AspNetMvcBlogv2.Persistence;
+using AspNetMvcBlogv2.Persistence.Entity;
+using AspNetMvcBlogv2.Persistence.Context;
 using AspNetMvcBlogv2.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 

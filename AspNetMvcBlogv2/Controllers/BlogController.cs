@@ -1,5 +1,5 @@
-﻿using AspNetMvcBlogv2.Data;
-using AspNetMvcBlogv2.Data.Entity;
+﻿using AspNetMvcBlogv2.Persistence.Context;
+using AspNetMvcBlogv2.Persistence.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;

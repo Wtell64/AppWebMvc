@@ -1,14 +1,18 @@
 using Microsoft.EntityFrameworkCore;
+using AspNetMvcBlogv2.Business.Services;
+using AspNetMvcBlogv2.Business.Services.Concrete;
+using AspNetMvcBlogv2.Business.Services.Abstract;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AspNetMvcBlogv2.Data.AppDbContext>(options =>
+builder.Services.AddDbContext<AspNetMvcBlogv2.Persistence.Context.AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DBConStr"));
 });
+
 
 builder.Services.AddSession(options =>
 {
@@ -20,6 +24,14 @@ builder.Services.AddSession(options =>
 }
 );
 builder.Services.AddHttpContextAccessor();
+
+//builder.Services.AddScoped<IPostService, PostService>();
+//builder.Services.AddScoped<IPageService, PageService>();
+//builder.Services.AddScoped<ICategoryService, CategoryService>();
+//builder.Services.AddScoped<ISettingService, SettingService>();
+//builder.Services.AddScoped<IUserService, UserService>();
+
+
 
 var app = builder.Build();
 

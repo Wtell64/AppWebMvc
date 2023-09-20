@@ -1,4 +1,4 @@
-﻿using AspNetMvcBlogv2.Data.Entity;
+﻿using AspNetMvcBlogv2.Persistence.Entity;
 
 namespace AspNetMvcBlogv2.ViewModels
 {

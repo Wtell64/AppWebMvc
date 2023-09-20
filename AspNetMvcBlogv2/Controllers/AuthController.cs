@@ -1,6 +1,6 @@
-﻿using AspNetMvcBlogv2.Data;
-using AspNetMvcBlogv2.Data.DTOs;
-using AspNetMvcBlogv2.Data.Entity;
+﻿using AspNetMvcBlogv2.Persistence.Context;
+using AspNetMvcBlogv2.Persistence.DTOs;
+using AspNetMvcBlogv2.Persistence.Entity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;

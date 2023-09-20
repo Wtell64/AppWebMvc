@@ -1,6 +1,6 @@
 ﻿@model AspNetMvcBlogv2.ViewModels.PageCategoryViewModel
 @using System.Text.Json;
-@using AspNetMvcBlogv2.Data.Entity;
+@using AspNetMvcBlogv2.Persistence.Entity;
 @inject IHttpContextAccessor _currentPageInfo
 @{
   var isLoggedIn = _currentPageInfo.HttpContext.Session.GetInt32("isLoggedIn");

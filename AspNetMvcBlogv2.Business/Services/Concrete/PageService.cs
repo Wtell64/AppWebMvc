@@ -1,4 +1,5 @@
 ﻿using AspNetMvcBlogv2.Business.Services.Abstract;
+using AspNetMvcBlogv2.Persistence.Context;
 using AspNetMvcBlogv2.Persistence.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,9 +12,9 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 {
 	public class PageService : IPageService
 	{
-		private readonly DbContext _context;
+		private readonly AppDbContext _context;
 
-		public PageService(DbContext dbContext)
+		public PageService(AppDbContext dbContext)
 		{
 			_context = dbContext;
 		}

@@ -1,4 +1,5 @@
 ﻿using AspNetMvcBlogv2.Business.Services.Abstract;
+using AspNetMvcBlogv2.Persistence.Context;
 using AspNetMvcBlogv2.Persistence.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,9 +13,9 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 {
 	public class UserService : IUserService
 	{
-		private readonly DbContext _context;
+		private readonly AppDbContext _context;
 
-		public UserService(DbContext dbContext)
+		public UserService(AppDbContext dbContext)
 		{
 			_context = dbContext;
 		}

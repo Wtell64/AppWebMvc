@@ -12,9 +12,9 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 {
 	public class CategoryService : ICategoryService
 	{
-		private readonly DbContext _context;
+		private readonly AppDbContext _context;
 
-		public CategoryService(DbContext dbContext)
+		public CategoryService(AppDbContext dbContext)
 		{
 			_context = dbContext;
 		}

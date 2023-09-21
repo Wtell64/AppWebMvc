@@ -25,11 +25,11 @@ builder.Services.AddSession(options =>
 );
 builder.Services.AddHttpContextAccessor();
 
-//builder.Services.AddScoped<IPostService, PostService>();
-//builder.Services.AddScoped<IPageService, PageService>();
-//builder.Services.AddScoped<ICategoryService, CategoryService>();
-//builder.Services.AddScoped<ISettingService, SettingService>();
-//builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPostService, PostService>();
+builder.Services.AddScoped<IPageService, PageService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 
 

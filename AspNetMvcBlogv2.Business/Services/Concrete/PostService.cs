@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AspNetMvcBlogv2.Persistence.Entity;
+using AspNetMvcBlogv2.Persistence.Context;
 
 namespace AspNetMvcBlogv2.Business.Services.Concrete
 {
@@ -13,9 +14,9 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 
 	{
 
-		private readonly DbContext _context;
+		private readonly AppDbContext _context;
 
-		public PostService(DbContext dbContext){
+		public PostService(AppDbContext dbContext){
 			_context = dbContext;
 		}
 

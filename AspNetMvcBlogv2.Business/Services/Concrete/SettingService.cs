@@ -1,4 +1,5 @@
 ﻿using AspNetMvcBlogv2.Business.Services.Abstract;
+using AspNetMvcBlogv2.Persistence.Context;
 using AspNetMvcBlogv2.Persistence.Entity;
 using Azure;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,9 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 	public class SettingService : ISettingService
 	{
 
-		private readonly DbContext _context;
+		private readonly AppDbContext _context;
 
-		public SettingService(DbContext dbContext)
+		public SettingService(AppDbContext dbContext)
 		{
 			_context = dbContext;
 		}

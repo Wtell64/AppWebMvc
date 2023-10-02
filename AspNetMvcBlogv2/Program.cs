@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using AspNetMvcBlogv2.Business.Services;
 using AspNetMvcBlogv2.Business.Services.Concrete;
 using AspNetMvcBlogv2.Business.Services.Abstract;
+using AspNetMvcBlogv2.Business.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +32,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ISettingService, SettingService>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 
 var app = builder.Build();

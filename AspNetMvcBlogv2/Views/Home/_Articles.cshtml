@@ -26,7 +26,7 @@
 						}
 						@if (activePage > 1)
 						{
-							<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@prevPage"><i class="ti-arrow-left"></i></a></li>
+							<li class="list-inline-item"><a asp-controller="Home" asp-area="" asp-action="Index" asp-route-page="@prevPage"><i class="ti-arrow-left"></i></a></li>
 						}
 						@for (int i = 1; i <= ViewBag.PageCount; i++)
 						{
@@ -37,12 +37,12 @@
 							}
 							else
 							{
-								<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@i">@i</a></li>
+								<li class="list-inline-item"><a asp-controller="Home" asp-area="" asp-action="Index" asp-route-page="@i">@i</a></li>
 							}
 						}
 						@if (activePage < (int)ViewBag.PageCount)
 						{
-							<li class="list-inline-item"><a asp-controller="Home" asp-action="Index" asp-route-page="@nextPage"><i class="ti-arrow-right"></i></a></li>
+							<li class="list-inline-item"><a asp-controller="Home" asp-area="" asp-action="Index" asp-route-page="@nextPage"><i class="ti-arrow-right"></i></a></li>
 						}
 					</ul>
 				</div>

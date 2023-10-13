@@ -114,7 +114,7 @@ namespace AspNetMvcBlogv2.Controllers
 
       #endregion
 
-      return RedirectToAction(nameof(Index),"Home");
+      return RedirectToAction(nameof(Index),"Home", new { area = "" });
 
     }
 
@@ -124,7 +124,7 @@ namespace AspNetMvcBlogv2.Controllers
 
       //HttpContext.Session.Remove("user");
 
-    return Redirect("/"); ;
+    return Redirect("/"); 
 
     }
 

@@ -15,6 +15,7 @@ namespace AspNetMvcBlogv2.Controllers
     {
 			this.appDbContext = appDbContext;
     }
+
     public IActionResult Search(string searchTerm, int page = 1) //, int? page
     {
 

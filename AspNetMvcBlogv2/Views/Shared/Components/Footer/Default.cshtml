@@ -11,7 +11,7 @@
 						
 						@foreach (var apage in Model)
 						{
-							<li class="list-inline-item"><a asp-controller="Page" asp-action="Detail" asp-route-id ="@apage.Id">@apage.Title</a></li>
+							<li class="list-inline-item"><a asp-area="" asp-controller="Page" asp-action="Detail" asp-route-id="@apage.Id">@apage.Title</a></li>
 						}
 					</ul>
 				</div>

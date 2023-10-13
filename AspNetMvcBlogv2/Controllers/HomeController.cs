@@ -43,7 +43,7 @@ namespace AspNetMvcBlogv2.Controllers
 		[HttpPost]
 		public IActionResult Index(string searchTerm)
 		{
-			return RedirectToAction("Search", "Blog", new { searchTerm });
+			return RedirectToAction("Search", "Blog", new { area = "", searchTerm });
 		}
 
 		public IActionResult Privacy()

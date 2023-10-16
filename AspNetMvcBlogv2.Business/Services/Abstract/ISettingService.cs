@@ -9,9 +9,9 @@ namespace AspNetMvcBlogv2.Business.Services.Abstract
 {
 	public interface ISettingService
 	{
-		Task DeleteByIdAsync(int id);
+		Task DeleteByIdAsync(Guid id);
 		Task<IEnumerable<Setting>> GetAllAsync();
-		Task<Setting> GetByIdAsync(int id);
+		Task<Setting> GetByIdAsync(Guid id);
 		Task InsertAsync(Setting setting);
 		Task UpdateAsync(Setting setting);
 	}

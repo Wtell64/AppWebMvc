@@ -1,6 +1,7 @@
 ﻿using AspNetMvcBlogv2.Business.Dtos.CategoryDtos;
 using AspNetMvcBlogv2.Business.Dtos.PageDtos;
 using AspNetMvcBlogv2.Business.Dtos.PostDtos;
+using AspNetMvcBlogv2.Business.Dtos.SettingDtos;
 using AspNetMvcBlogv2.Business.Dtos.UserDtos;
 using AspNetMvcBlogv2.Persistence.Entity;
 using AutoMapper;
@@ -32,6 +33,10 @@ namespace AspNetMvcBlogv2.Business.AutoMapper
 			CreateMap<User, CreateOrEditUserDto>().ReverseMap();
 			CreateMap<User, UserDto>().ReverseMap();
 			CreateMap<User, ViewUserDto>().ReverseMap();
-		}
+
+      CreateMap<Setting, CreateOrEditSettingDto>().ReverseMap();
+      CreateMap<Setting, SettingDto>().ReverseMap();
+      CreateMap<Setting, ViewSettingDto>().ReverseMap();
+    }
     }
 }

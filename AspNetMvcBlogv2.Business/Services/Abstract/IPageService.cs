@@ -9,9 +9,9 @@ namespace AspNetMvcBlogv2.Business.Services.Abstract
 {
 	public interface IPageService
 	{
-		Task DeleteByIdAsync(int id);
+		Task DeleteByIdAsync(Guid id);
 		Task<IEnumerable<Page>> GetAllAsync();
-		Task<Page> GetByIdAsync(int id);
+		Task<Page> GetByIdAsync(Guid id);
 		Task InsertAsync(Page page);
 		Task UpdateAsync(Page page);
 	}

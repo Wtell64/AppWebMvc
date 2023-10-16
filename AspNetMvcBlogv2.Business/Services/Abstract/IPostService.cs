@@ -8,9 +8,9 @@ namespace AspNetMvcBlogv2.Business.Services.Abstract
 {
 	public interface IPostService
 	{
-		Task DeleteByIdAsync(int id);
+		Task DeleteByIdAsync(Guid id);
 		Task<IEnumerable<Post>> GetAllAsync();
-		Task<Post> GetByIdAsync(int id);
+		Task<Post> GetByIdAsync(Guid id);
 		Task InsertAsync(Post post);
 		Task UpdateAsync(Post post);
 

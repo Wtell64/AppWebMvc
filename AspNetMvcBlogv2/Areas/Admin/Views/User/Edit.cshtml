@@ -1,0 +1,87 @@
+﻿@model AspNetMvcBlogv2.Business.Dtos.UserDtos.CreateOrEditUserDto
+@{
+  Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="card">
+  <div class="card-title">
+    <h2>Edit User</h2>
+  </div>
+  <div class="card-body">
+
+    <form method="post">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Id</label>
+            <input value="@Model.Id" class="form-control" asp-for=Id readonly />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Name</label>
+            <input value="@Model.Name" asp-for=Name class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Surname</label>
+            <input value="@Model.Surname" asp-for=Surname class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Email</label>
+            <input value="@Model.Email" asp-for=Email class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Password</label>
+            <input value="@Model.Password" asp-for=Password class="form-control" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Profile Picture URL</label>
+            <input value="@Model.ProfilePictureURL" asp-for=ProfilePictureURL class="form-control" />
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group" style="margin-top:10px">
+            <button type="submit" asp-area="Admin" asp-controller="User" asp-action="Edit" class="btn btn-success">Save</button>
+            <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-danger">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+  </div>
+
+</div>
+

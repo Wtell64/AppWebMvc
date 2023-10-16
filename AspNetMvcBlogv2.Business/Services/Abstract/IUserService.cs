@@ -9,9 +9,9 @@ namespace AspNetMvcBlogv2.Business.Services.Abstract
 {
 	public interface IUserService
 	{
-		Task DeleteByIdAsync(int id);
+		Task DeleteByIdAsync(Guid id);
 		Task<IEnumerable<User>> GetAllAsync();
-		Task<User> GetByIdAsync(int id);
+		Task<User> GetByIdAsync(Guid id);
 		Task InsertAsync(User user);
 		Task UpdateAsync(User user);
 	}

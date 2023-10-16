@@ -46,5 +46,7 @@ namespace AspNetMvcBlogv2.Persistence.Context
             modelBuilder.Seed();
         }
 
+        
+
     }
 }

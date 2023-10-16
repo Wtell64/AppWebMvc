@@ -20,7 +20,7 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 			_context = dbContext;
 		}
 
-		public async Task DeleteByIdAsync(int id)
+		public async Task DeleteByIdAsync(Guid id)
 		{
 			User entityToDelete = await _context.Set<User>().FindAsync(id);
 			if (entityToDelete != null)
@@ -35,7 +35,7 @@ namespace AspNetMvcBlogv2.Business.Services.Concrete
 			return await _context.Set<User>().ToListAsync();
 		}
 
-		public async Task<User> GetByIdAsync(int id)
+		public async Task<User> GetByIdAsync(Guid id)
 		{
 			return await _context.Set<User>().FindAsync(id);
 		}

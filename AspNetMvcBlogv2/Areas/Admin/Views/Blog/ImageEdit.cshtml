@@ -1,0 +1,57 @@
+﻿@model AspNetMvcBlogv2.Persistence.Entity.PostImage
+@{
+  Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="card">
+  <div class="card-title">
+    <h2>Edit Image</h2>
+  </div>
+  <div class="card-body">
+
+    <form method="post">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Create Id</label>
+            <input value="@Model.Id" class="form-control" asp-for=Id readonly />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Post Id</label>
+            <input value="@Model.PostId" class="form-control" asp-for=PostId readonly />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label>Image Url</label>
+            <input value="" asp-for=ImageUrl class="form-control" />
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group" style="margin-top:10px">
+            <button type="submit" asp-area="Admin" asp-controller="Blog" asp-action="ImageEdit" class="btn btn-success">Edit</button>
+            <a asp-area="Admin" asp-controller="Blog" asp-action="Index" asp-route-id="@ViewBag.PostId" class="btn btn-danger">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+  </div>
+
+</div>
+
